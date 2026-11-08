@@ -1,0 +1,9 @@
+node_modules
+dist
+.vercel
+.env*.local
+*.log
+.DS_Store
+# Raw media library (~1.2GB). Curated, optimized copies live in public/images (npm run images).
+data/
+*.pdf

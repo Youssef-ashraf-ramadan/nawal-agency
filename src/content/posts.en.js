@@ -1,0 +1,82 @@
+// Additional blog articles (English). Keys must match `posts` in shared.js.
+export default {
+  'seo-basics': {
+    tag: 'SEO',
+    title: 'A simple guide to ranking your website on Google',
+    excerpt: 'SEO fundamentals you can apply today to attract free, steady traffic.',
+    date: '2025-06-03',
+    body: [
+      { h: 'Start with the words your customers use', p: 'Before writing any page, learn the phrases your customers type into Google. Tools like Google Keyword Planner and Search Console reveal search volume and intent — whether someone wants information or is ready to buy.' },
+      { h: 'One page per goal', p: 'Give every service its own page with a clear title and a short description containing the target keyword. Pages that mix several topics confuse search engines and visitors alike.' },
+      { h: 'Speed and mobile experience', p: 'Most visits come from phones. Compressed images, fewer unnecessary scripts and fast hosting directly affect both your ranking and your conversion rate.' },
+      { h: 'Content that answers questions', p: 'Write articles that answer real customer questions in simple language with clear subheadings. Useful content earns natural links and shares that build Google’s trust in your site.' },
+      { h: 'Review results monthly', p: 'Track your top pages and the queries you appear for in Search Console, and keep refreshing older content. SEO is an ongoing process, not a one-time task.' },
+    ],
+  },
+  'brand-identity-guide': {
+    tag: 'Branding',
+    title: 'How to build a memorable visual identity for your brand',
+    excerpt: 'From logo to colors and tone of voice: the identity elements that make customers remember you.',
+    date: '2025-06-18',
+    body: [
+      { h: 'Identity is bigger than a logo', p: 'A visual identity is a full system: logo, colors, typography, photo style and the way you speak. The goal is for customers to recognize you even without seeing your name.' },
+      { h: 'Start with brand personality', p: 'Is your brand calm and premium, or bold and playful? Defining personality first turns color and font choices into deliberate decisions rather than personal taste.' },
+      { h: 'A limited color palette', p: 'Choose one primary color, one accent and two neutrals. Consistency with a few colors is far stronger than a wide palette that distracts the eye.' },
+      { h: 'A clear usage guide', p: 'Document every rule in a brand guideline: logo spacing, incorrect uses and design examples. It protects your identity when several designers work on it.' },
+    ],
+  },
+  'meta-ads-lead-generation': {
+    tag: 'Paid Ads',
+    title: 'Lead generation on Meta: from the ad to the closed sale',
+    excerpt: 'How to build Facebook and Instagram campaigns that bring serious buyers, not just messages.',
+    date: '2025-07-09',
+    body: [
+      { h: 'Define a qualified lead', p: 'A good lead is not everyone who sends a message. Define the right customer up front — budget, location and buying timeline — and make the ad speak to them directly.' },
+      { h: 'Offer before design', p: 'Even the best design can’t rescue a weak offer. A free consultation, a site visit or a time-limited discount gives customers a reason to take the first step.' },
+      { h: 'Pick the right objective', p: 'Message campaigns suit services that need conversation; lead forms collect data quickly. Test both and compare cost per real customer, not just cost per message.' },
+      { h: 'Speed of reply wins', p: 'A customer who gets no reply within minutes goes to a competitor. Prepare quick replies or a smart assistant, and follow every lead to the end of the journey.' },
+      { h: 'Measure real return', p: 'Connect ads to actual sales through a CRM or a tracking sheet. That’s how you learn which ad really makes money — and how we helped one client grow direct inquiries by 70%.' },
+    ],
+  },
+  'website-that-converts': {
+    tag: 'Software Development',
+    title: '7 elements that turn website visitors into customers',
+    excerpt: 'A beautiful website isn’t enough. These elements turn visits into bookings and orders.',
+    date: '2025-08-21',
+    body: [
+      { h: '1. A clear message above the fold', p: 'Within seconds visitors should understand what you offer, for whom and why you. A direct headline beats a vague slogan.' },
+      { h: '2. One clear call to action', p: 'Book now, request a quote or chat on WhatsApp. Keep the main action visible and repeated through the page.' },
+      { h: '3. Load speed', p: 'Every second of delay lowers conversions. Compressed images, clean code and fast hosting are essentials, not extras.' },
+      { h: '4. Social proof', p: 'Results in numbers, real project photos and client logos build trust faster than any description.' },
+      { h: '5. Short forms', p: 'Ask for the minimum: a name and phone number are usually enough to start.' },
+      { h: '6. Excellent mobile experience', p: 'Design for phones first: large buttons, readable text and simple menus.' },
+      { h: '7. Tracking and analytics', p: 'Install analytics to see where visitors come from and where they leave, then keep improving. That’s how we doubled online bookings for Egypta Center.' },
+    ],
+  },
+  'social-media-content-plan': {
+    tag: 'Content',
+    title: 'A monthly social media content plan in 5 steps',
+    excerpt: 'A practical way to organize your content every month instead of posting randomly.',
+    date: '2025-09-14',
+    body: [
+      { h: '1. Set the month’s goals', p: 'More followers, a product launch or more bookings? The monthly goal defines the type and mix of content.' },
+      { h: '2. Split content into pillars', p: 'For example: 40% educational, 30% work and results, 20% offers, 10% behind the scenes. Variety keeps your audience interested.' },
+      { h: '3. Build a publishing calendar', p: 'Choose the best days and times for your audience and schedule posts, reels and stories in advance.' },
+      { h: '4. Produce in batches', p: 'Design, write and shoot the week’s or month’s content in one go. Batching saves time and keeps your identity consistent.' },
+      { h: '5. Review and adjust', p: 'At month end, review your best and weakest posts and repeat what worked in next month’s plan.' },
+    ],
+  },
+  'whatsapp-automation-sales': {
+    tag: 'AI & Automation',
+    title: 'WhatsApp automation: faster replies, more sales',
+    excerpt: 'How to use auto-replies and a smart assistant on WhatsApp without losing the human touch.',
+    date: '2026-01-20',
+    body: [
+      { h: 'Why WhatsApp?', p: 'Most customers in our region prefer WhatsApp. Replying fast there noticeably increases your chances of a sale.' },
+      { h: 'Start with repeated questions', p: 'Prices, opening hours, location and payment methods. Let a smart assistant answer them instantly, around the clock.' },
+      { h: 'Smart hand-off to your team', p: 'When a customer is ready to buy or needs specifics, the system passes them to a salesperson with a summary of the chat.' },
+      { h: 'Connect it to your CRM', p: 'Log every conversation automatically so you know each lead’s source and status, and follow up with those who didn’t complete a purchase.' },
+      { h: 'Keep your brand voice', p: 'Train the assistant on your brand’s tone and review conversations weekly. Good automation feels natural and friendly.' },
+    ],
+  },
+}
