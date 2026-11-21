@@ -18,6 +18,7 @@ const BRAND = path.join(import.meta.dirname, 'brand')
 
 const D = 'Designs'
 const BI = 'Brand Identity'
+const SM = 'Designs/Social Media Management'
 
 /** [output name, source path inside /data] — square 600px thumbnails */
 const WORK = [
@@ -60,6 +61,17 @@ const WORK = [
   ['brand-arab-stone', `${BI}/Arabstone/12-37-35-120-removebg-preview.png`],
   ['brand-sara-mazen', `${BI}/Coach.Sara Mazen/jpeg/Artboard 1 copy 2.png`],
   ['brand-skyline', `${BI}/Skyline/skyline whait-0٣.png`],
+  ['habiba-mothers-day', `${SM}/habiba-mothers-day.jpg`],
+  ['habiba-hajj', `${SM}/habiba-hajj.jpg`],
+  ['habiba-find-flight', `${SM}/habiba-find-flight.jpg`],
+  ['habiba-summer', `${SM}/habiba-summer.jpg`],
+  ['variety-hallway', `${SM}/variety-hallway.jpg`],
+]
+
+/** [output name, full-page screenshot inside /data] — the top of the page, cropped to 4:3 */
+const SITES = [
+  ['site-arab-stone', 'Websites/Marble & Granite/arabstone-online.png'],
+  ['site-ibuild', 'Websites/Construction & Interior Finishing/build-egy.png'],
 ]
 
 const webp = (img, q = 72) => img.webp({ quality: q, effort: 6 })
@@ -93,6 +105,32 @@ async function websiteShot() {
   console.log('website screenshot: ok')
 }
 
+async function sites() {
+  let done = 0
+  for (const [name, rel] of SITES) {
+    const src = path.join(DATA, rel)
+    if (!(await exists(src))) { console.warn(`  skip (missing): ${rel}`); continue }
+    const { width } = await sharp(src).metadata()
+    await webp(sharp(src).extract({ left: 0, top: 0, width, height: Math.round(width * 0.75) }).resize(480, 360), 80)
+      .toFile(path.join(OUT, 'work', `${name}.webp`))
+    done++
+  }
+  console.log(`sites: ${done}/${SITES.length}`)
+}
+
+/** Video posters (stills of the Google Drive reels) — every file in /data/Reels, max 480px wide. */
+async function reels() {
+  const dir = path.join(DATA, 'Reels')
+  if (!(await exists(dir))) return
+  await fs.mkdir(path.join(OUT, 'reels'), { recursive: true })
+  const files = (await fs.readdir(dir)).filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
+  for (const f of files) {
+    await webp(sharp(path.join(dir, f)).resize({ width: 480, withoutEnlargement: true }), 74)
+      .toFile(path.join(OUT, 'reels', f.replace(/\.\w+$/, '.webp')))
+  }
+  console.log(`reels: ${files.length}`)
+}
+
 async function brand() {
   const logo = sharp(path.join(BRAND, 'logo-source.png')).trim()
   const buf = await logo.png().toBuffer()
@@ -120,7 +158,7 @@ async function brand() {
     <rect width="1200" height="630" fill="url(#g)"/>
     <circle cx="1120" cy="70" r="150" fill="#e8f25b" opacity=".95"/>
     <circle cx="70" cy="590" r="110" fill="#e8f25b" opacity=".9"/>
-    <text x="600" y="500" fill="#fff" font-family="Arial, sans-serif" font-size="40" text-anchor="middle">Marketing · AI · Software · Media Production</text>
+    <text x="600" y="500" fill="#fff" font-family="Arial, sans-serif" font-size="40" text-anchor="middle">Marketing · AI · Software · Content Production</text>
   </svg>`)
   await sharp(bg).composite([{ input: white, top: 150, left: Math.round((1200 - ogLogo.info.width) / 2) }])
     .jpeg({ quality: 82, mozjpeg: true }).toFile(path.join(OUT, 'og-image.jpg'))
@@ -128,4 +166,4 @@ async function brand() {
 }
 
 await fs.mkdir(OUT, { recursive: true })
-await Promise.all([work(), websiteShot(), brand()])
+await Promise.all([work(), websiteShot(), sites(), reels(), brand()])

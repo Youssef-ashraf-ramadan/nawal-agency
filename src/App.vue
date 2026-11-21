@@ -7,11 +7,14 @@ import { SITE_URL, site } from '@/config/site'
 import AppHeader from '@/components/AppHeader.vue'
 import AppFooter from '@/components/AppFooter.vue'
 import CtaBand from '@/components/CtaBand.vue'
+import FloatingContact from '@/components/FloatingContact.vue'
+import { useReveal } from '@/composables/useReveal'
 import fontArabic from '@fontsource-variable/alexandria/files/alexandria-arabic-wght-normal.woff2?url'
 import fontLatin from '@fontsource-variable/alexandria/files/alexandria-latin-wght-normal.woff2?url'
 
 const route = useRoute()
 const { locale, t } = useLocale()
+useReveal()
 const showCta = computed(() => !['404', 'contact'].includes(route.meta.page))
 
 const organization = {
@@ -55,4 +58,5 @@ useHead({
   </main>
   <CtaBand v-if="showCta" />
   <AppFooter />
+  <FloatingContact />
 </template>

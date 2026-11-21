@@ -3,8 +3,10 @@ import { computed } from 'vue'
 import { site, whatsappUrl } from '@/config/site'
 import AppIcon from './AppIcon.vue'
 
+const LABELS = { facebook: 'Facebook', instagram: 'Instagram', linkedin: 'LinkedIn', tiktok: 'TikTok', behance: 'Behance', vimeo: 'Vimeo', youtube: 'YouTube' }
+
 const items = computed(() => [
-  ...Object.entries(site.socials).filter(([, url]) => url).map(([name, url]) => ({ name, url, label: name })),
+  ...Object.entries(site.socials).filter(([, url]) => url).map(([name, url]) => ({ name, url, label: LABELS[name] || name })),
   { name: 'whatsapp', url: whatsappUrl(), label: 'WhatsApp' },
   { name: 'mail', url: `mailto:${site.email}`, label: 'Email' },
   { name: 'link', url: site.linktree, label: 'Linktree' },
@@ -22,12 +24,12 @@ const items = computed(() => [
 </template>
 
 <style scoped>
-.socials { display: flex; gap: 10px; }
+.socials { display: flex; flex-wrap: wrap; gap: 10px; }
 .socials a {
   display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
   background: rgb(255 255 255 / 0.1); color: var(--white);
   border: 1px solid rgb(255 255 255 / 0.25);
-  transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s var(--ease);
 }
-.socials a:hover { background: var(--lime); color: var(--ink); }
+.socials a:hover { background: var(--lime); color: var(--ink); transform: translateY(-3px); }
 </style>

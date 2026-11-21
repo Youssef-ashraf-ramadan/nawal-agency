@@ -48,9 +48,9 @@ watch(open, (v) => {
           </li>
         </ul>
         <div class="nav__mobile-cta">
-          <RouterLink :to="to('/contact')" class="btn btn--lime">
-            <AppIcon name="calendar" :size="18" /> {{ t.nav.cta }}
-          </RouterLink>
+          <a :href="site.discoveryForm" target="_blank" rel="noopener" class="btn btn--lime">
+            <AppIcon name="sparkle" :size="18" /> {{ t.nav.cta }}
+          </a>
         </div>
       </nav>
 
@@ -59,9 +59,9 @@ watch(open, (v) => {
           <span>{{ t.nav.switchShort }}</span>
           <AppIcon name="globe" :size="18" />
         </a>
-        <RouterLink :to="to('/contact')" class="btn btn--lime header__cta">
-          <AppIcon name="calendar" :size="18" /> {{ t.nav.cta }}
-        </RouterLink>
+        <a :href="site.discoveryForm" target="_blank" rel="noopener" class="btn btn--lime header__cta">
+          <AppIcon name="sparkle" :size="18" /> {{ t.nav.cta }}
+        </a>
         <button
           type="button"
           class="burger"
@@ -113,7 +113,8 @@ watch(open, (v) => {
   border: 1px solid var(--line); border-radius: 12px; background: var(--white); color: var(--ink); cursor: pointer;
 }
 
-@media (max-width: 1100px) {
+.header__cta { white-space: nowrap; }
+@media (max-width: 1260px) {
   .header__cta { display: none; }
 }
 

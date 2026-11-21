@@ -6,6 +6,7 @@ import { services } from '@/content/shared'
 import { site, whatsappUrl, SITE_URL } from '@/config/site'
 import PageHero from '@/components/PageHero.vue'
 import AppIcon from '@/components/AppIcon.vue'
+import SocialLinks from '@/components/SocialLinks.vue'
 
 const { t, to } = useLocale()
 useSeo(({ url }) => ({
@@ -95,6 +96,14 @@ const channels = computed(() => [
       </form>
 
       <aside class="side">
+        <div class="discovery">
+          <span class="discovery__icon"><AppIcon name="form" :size="26" /></span>
+          <h2>{{ t.contact.discovery.title }}</h2>
+          <p>{{ t.contact.discovery.text }}</p>
+          <a :href="site.discoveryForm" target="_blank" rel="noopener" class="btn btn--lime">
+            {{ t.contact.discovery.button }} <AppIcon name="arrow" :size="18" flip />
+          </a>
+        </div>
         <img src="/images/contact.webp" width="900" height="560" :alt="t.contact.imgAlt" loading="lazy" decoding="async" />
         <ul class="channels">
           <li v-for="c in channels" :key="c.value">
@@ -107,6 +116,10 @@ const channels = computed(() => [
             </a>
           </li>
         </ul>
+        <div class="follow">
+          <strong>{{ t.contact.follow }}</strong>
+          <SocialLinks class="follow__links" />
+        </div>
       </aside>
     </div>
   </section>
@@ -136,6 +149,17 @@ const channels = computed(() => [
 .channels a:hover { border-color: var(--blue-700); }
 .channels small { display: block; font-size: var(--fs-xs); color: var(--muted); }
 .channels strong { display: block; font-size: var(--fs-sm); color: var(--ink); font-weight: 600; word-break: break-all; }
+.discovery {
+  position: relative; overflow: hidden; display: grid; gap: 10px; justify-items: start;
+  padding: 22px; border-radius: var(--radius-lg); color: rgb(255 255 255 / 0.85);
+  background: linear-gradient(140deg, var(--blue-700), var(--blue-900));
+}
+.discovery::after { content: ''; position: absolute; width: 110px; height: 110px; border-radius: 50%; background: var(--lime); inset-inline-end: -40px; top: -40px; opacity: 0.9; }
+.discovery h2 { color: var(--white); font-size: 1.15rem; }
+.discovery p { font-size: var(--fs-sm); }
+.discovery__icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: rgb(255 255 255 / 0.12); color: var(--lime); }
+.follow { display: grid; gap: 10px; padding: 16px; border-radius: var(--radius); background: var(--blue-800); }
+.follow strong { color: var(--white); font-size: var(--fs-sm); }
 @media (max-width: 900px) { .contact { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .form__row { grid-template-columns: 1fr; } }
 </style>

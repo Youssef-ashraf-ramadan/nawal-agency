@@ -21,6 +21,19 @@ export const createApp = ViteSSG(
     router.beforeEach(async (to) => {
       await loadLocale(to.meta.locale || DEFAULT_LOCALE)
     })
+
+    // Analytics: the first page view is sent by the snippets in index.html; report in-app navigations here.
+    if (!import.meta.env.SSR) {
+      let first = true
+      router.afterEach((to, from) => {
+        if (first) return void (first = false)
+        if (to.path === from.path) return // hash-only change
+        setTimeout(() => {
+          window.dataLayer?.push({ event: 'virtual_page_view', page_path: to.fullPath, page_title: document.title })
+          window.fbq?.('track', 'PageView')
+        }, 0)
+      })
+    }
   },
 )
 
