@@ -261,6 +261,7 @@ onBeforeUnmount(() => {
   .case:nth-child(even) .case__media { order: 0; }
 }
 @media (max-width: 560px) {
+  .case__videos { grid-template-columns: 1fr; }
   .sites { grid-template-columns: 1fr; }
   .lightbox { padding: 64px 12px; }
   .lightbox__prev, .lightbox__next { top: auto; bottom: 14px; translate: none; }
