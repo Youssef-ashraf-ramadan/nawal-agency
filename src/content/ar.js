@@ -157,7 +157,7 @@ export default {
     text: 'شاهد كيف ساعدنا عملاءنا في تحقيق أهدافهم من خلال حلول مخصصة تجمع بين التسويق والتكنولوجيا والإبداع.',
     pageTitle: 'أعمالنا',
     pageText: 'في بوينت لا نبدأ التنفيذ قبل تخطيط استراتيجي عميق. هذه مجموعة من المشاريع التي تجسد منهجيتنا.',
-    labels: { challenge: 'التحدي', solution: 'ما قدمناه', result: 'النتيجة', industry: 'المجال', visit: 'زيارة الموقع', websites: 'مواقع من تنفيذنا', reels: 'شاهد الفيديوهات', play: 'تشغيل الفيديو', reel: 'ريل' },
+    labels: { challenge: 'التحدي', solution: 'ما قدمناه', result: 'النتيجة', industry: 'المجال', visit: 'زيارة الموقع', websites: 'مواقع من تنفيذنا', reel: 'فيديو' },
     caseLinks: { 'well-align-strategy': 'استراتيجية Well Align', 'market-plans': 'خطط تسويقية واستراتيجيات لبراندات أخرى' },
     media: {
       eyebrow: 'Media Production',

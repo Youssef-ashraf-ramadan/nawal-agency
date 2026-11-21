@@ -48,7 +48,18 @@ onBeforeUnmount(() => {
   <section class="section">
     <div class="container cases">
       <article v-for="c in cases" :id="c.id" :key="c.id" class="case card">
-        <div class="case__media">
+        <div v-if="c.videos" class="case__media case__videos">
+          <ReelPlayer
+            v-for="(v, i) in c.videos"
+            :key="v.id"
+            :src="v.src"
+            :poster="v.poster"
+            :wide="v.wide"
+            :label="`${t.work.cases[c.id].title} — ${t.work.labels.reel} ${i + 1}`"
+            :class="{ 'case__video--main': i === 0 }"
+          />
+        </div>
+        <div v-else class="case__media">
           <img :src="c.cover" :width="c.id === 'egypta' ? 800 : 600" :height="600" :alt="t.work.cases[c.id].title" loading="lazy" decoding="async" />
           <ul v-if="c.gallery.length" class="case__thumbs" :class="{ 'case__thumbs--4': c.gallery.length > 3 }">
             <li v-for="g in c.gallery" :key="g"><img :src="g" width="600" height="600" alt="" loading="lazy" decoding="async" /></li>
@@ -105,14 +116,6 @@ onBeforeUnmount(() => {
           </ul>
         </div>
 
-        <div v-if="c.reels" class="case__extra">
-          <h3>{{ t.work.labels.reels }}</h3>
-          <ul class="reels reels--wide">
-            <li v-for="(r, i) in c.reels" :key="r.id">
-              <ReelPlayer :id="r.id" :poster="r.poster" wide :label="`${t.work.labels.reel} ${i + 1}`" :play-label="t.work.labels.play" />
-            </li>
-          </ul>
-        </div>
       </article>
     </div>
   </section>
@@ -122,7 +125,7 @@ onBeforeUnmount(() => {
       <SectionHead id="media-title" :eyebrow="t.work.media.eyebrow" :title="t.work.media.title" :text="t.work.media.text" />
       <ul class="reels">
         <li v-for="(r, i) in mediaReels" :key="r.id">
-          <ReelPlayer :id="r.id" :poster="r.poster" :wide="r.wide" :label="`${t.work.labels.reel} ${i + 1}`" :play-label="t.work.labels.play" />
+          <ReelPlayer :src="r.src" :poster="r.poster" :wide="r.wide" :label="`${t.work.media.title} — ${t.work.labels.reel} ${i + 1}`" />
         </li>
       </ul>
     </div>
@@ -217,8 +220,9 @@ onBeforeUnmount(() => {
 .site__info small { display: block; font-size: var(--fs-xs); color: var(--muted); text-align: start; }
 .site__cta { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-xs); font-weight: 600; color: var(--blue-700); }
 
+.case__videos { grid-template-columns: repeat(3, 1fr); }
+.case__video--main { grid-column: 1 / -1; }
 .reels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.reels--wide { grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
 .media { background: linear-gradient(180deg, var(--white), var(--blue-50)); }
 
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }

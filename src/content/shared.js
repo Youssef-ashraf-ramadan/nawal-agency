@@ -1,10 +1,12 @@
 // Language-independent data: ordering, icons and images. Texts live in ar.js / en.js keyed by the same ids.
 const img = (name) => `/images/work/${name}.webp`
 
-/** A Google Drive video: `poster` is a local still (scripts/images.mjs → /data/Reels), `wide` = 16:9 instead of 9:16. */
-const reel = (id, poster, wide = false) => ({ id, poster: `/images/reels/${poster}.webp`, wide })
-export const driveEmbed = (id) => `https://drive.google.com/file/d/${id}/preview`
-export const driveView = (id) => `https://drive.google.com/file/d/${id}/view`
+/**
+ * A self-hosted video: /public/videos/<name>.mp4 (720p H.264, compressed from the client's Google Drive originals)
+ * with its poster still /public/images/reels/<name>.webp (scripts/images.mjs). `wide` = 16:9 frame instead of 9:16.
+ */
+const reel = (name, wide = false) => ({ id: name, src: `/videos/${name}.mp4`, poster: `/images/reels/${name}.webp`, wide })
+const driveView = (id) => `https://drive.google.com/file/d/${id}/view`
 
 export const services = [
   { id: 'marketing', icon: 'chart' },
@@ -22,12 +24,8 @@ export const cases = [
     id: 'variety',
     cover: img('variety-1'),
     gallery: ['variety-2', 'variety-3', 'variety-4'].map(img),
-    reels: [
-      reel('1rrKRbjK0iDy9gC608ahVVuJ83ou13Qul', 'ai-1', true),
-      reel('1A7X33YTNwNnU5GPEuepPcTo3HWVJJgcT', 'ai-2'),
-      reel('1cr8amYo06pNF7wZadl70WhSqwbZ8BG4l', 'ai-3', true),
-      reel('19Lia6GaPEY65mpxprcO6HjNs0Z2xXWom', 'ai-4', true),
-    ],
+    // Shown instead of the images: AI videos produced for the client
+    videos: [reel('ai-1', true), reel('ai-4', true), reel('ai-3', true), reel('ai-2', true)],
   },
   {
     id: 'egypta',
@@ -36,7 +34,7 @@ export const cases = [
     sites: [
       { id: 'egypta', image: img('egypta-website'), url: 'https://egyptamaxillofacial.com/' },
       { id: 'arab-stone', image: img('site-arab-stone'), url: 'https://arabstone.online/' },
-      { id: 'ibuild', image: img('site-ibuild'), url: 'https://build-egy.com/' },
+      { id: 'ibuild', image: img('site-ibuild'), url: 'https://www.ibuild-egy.com/' },
     ],
   },
   {
@@ -56,12 +54,7 @@ export const cases = [
 ]
 
 /** "Media Production" section on /work — videos produced by the Point team. */
-export const mediaReels = [
-  reel('1G1f-gRZdFxTV6FO5cWd8gans0ZReOseP', 'media-1'),
-  reel('1BQ1WWv_THvCcI_2WN1vn1SPFBCYsC7yb', 'media-2'),
-  reel('13ocO35CNQPjF8oHWtboMQRLZ8Xol6E84', 'media-3'),
-  reel('1D9rG09Z5AfV9rnu3tG1FdEmKRF_yOEms', 'media-4'),
-]
+export const mediaReels = [reel('media-1'), reel('media-2'), reel('media-3'), reel('media-4')]
 
 /** Cases featured on the home page (design shows four). */
 export const featuredCases = ['arab-stone', 'variety', 'egypta', 'habiba']

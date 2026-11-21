@@ -157,7 +157,7 @@ export default {
     text: 'See how we helped our clients reach their goals with tailored solutions combining marketing, technology and creativity.',
     pageTitle: 'Our work',
     pageText: 'At Point, we never jump into execution without deep strategic planning. Here are projects that embody our methodology.',
-    labels: { challenge: 'The challenge', solution: 'What we delivered', result: 'The result', industry: 'Industry', visit: 'Visit website', websites: 'Websites we built', reels: 'Watch the videos', play: 'Play video', reel: 'Reel' },
+    labels: { challenge: 'The challenge', solution: 'What we delivered', result: 'The result', industry: 'Industry', visit: 'Visit website', websites: 'Websites we built', reel: 'Video' },
     caseLinks: { 'well-align-strategy': 'Well Align strategy', 'market-plans': 'Marketing plans & strategies for other brands' },
     media: {
       eyebrow: 'Media Production',
