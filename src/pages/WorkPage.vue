@@ -60,7 +60,7 @@ onBeforeUnmount(() => {
           />
         </div>
         <div v-else class="case__media">
-          <img :src="c.cover" :width="c.id === 'egypta' ? 800 : 600" :height="600" :alt="t.work.cases[c.id].title" loading="lazy" decoding="async" />
+          <img :src="c.cover" :class="{ 'case__cover--square': c.squareCover }" :width="c.id === 'egypta' ? 800 : 600" :height="600" :alt="t.work.cases[c.id].title" loading="lazy" decoding="async" />
           <ul v-if="c.gallery.length" class="case__thumbs" :class="{ 'case__thumbs--4': c.gallery.length > 3 }">
             <li v-for="g in c.gallery" :key="g"><img :src="g" width="600" height="600" alt="" loading="lazy" decoding="async" /></li>
           </ul>
@@ -175,6 +175,7 @@ onBeforeUnmount(() => {
 .case:nth-child(even) .case__media { order: 2; }
 .case__media { display: grid; gap: 10px; align-content: start; }
 .case__media > img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); background: var(--blue-50); }
+.case__media > img.case__cover--square { aspect-ratio: 1; }
 .case__thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .case__thumbs--4 { grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .case__thumbs li { overflow: hidden; border-radius: var(--radius-sm); }

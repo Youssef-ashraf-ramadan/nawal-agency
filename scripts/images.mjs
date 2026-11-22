@@ -29,7 +29,7 @@ const WORK = [
   ['medical-1', `${D}/Medical & Healthcare/2 التقويم الشفاف.png`],
   ['medical-2', `${D}/Medical & Healthcare/WhatsApp Image 2025-01-29 at 11.31.59 PM.jpeg`],
   ['medical-3', `${D}/Medical & Healthcare/علاج-العصب-بدون-الم.png`],
-  ['habiba-1', `${D}/Tourism & Travel/habiba-lasirena.jpg`],
+  ['habiba-1', `${D}/Tourism & Travel/Starting-2.jpg`],
   ['habiba-2', `${D}/Tourism & Travel/WhatsApp Image 2024-07-28 at 11.54.58 PM.jpeg`],
   ['habiba-3', `${D}/Tourism & Travel/Ticket-2-2-.jpg`],
   ['habiba-4', `${D}/Tourism & Travel/Khan.jpg`],
