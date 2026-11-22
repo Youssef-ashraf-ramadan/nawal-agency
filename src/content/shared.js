@@ -40,7 +40,7 @@ export const cases = [
   {
     id: 'habiba',
     cover: img('habiba-1'),
-    gallery: ['habiba-3', 'habiba-mothers-day', 'habiba-hajj', 'habiba-summer', 'habiba-find-flight', 'habiba-4', 'arab-stone-4', 'variety-hallway'].map(img),
+    gallery: ['habiba-tickets', 'habiba-find-easy', 'habiba-bus'].map(img),
   },
   {
     id: 'well-align',
@@ -66,6 +66,7 @@ export const featuredCasesLink = null
 export const caseWebsites = {}
 
 export const gallery = [
+  ['habiba-1', 'tourism'], ['habiba-tickets', 'tourism'], ['habiba-find-easy', 'tourism'], ['habiba-bus', 'tourism'],
   ['well-align-1', 'medical'], ['habiba-hajj', 'tourism'], ['variety-hallway', 'construction'], ['arab-stone-2', 'marble'],
   ['habiba-summer', 'tourism'], ['well-align-4', 'medical'], ['habiba-find-flight', 'tourism'], ['arab-stone-1', 'marble'],
   ['habiba-mothers-day', 'tourism'], ['variety-2', 'construction'], ['habiba-3', 'tourism'], ['brand-arab-stone', 'branding'],
